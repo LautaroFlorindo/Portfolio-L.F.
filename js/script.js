@@ -108,9 +108,9 @@ ScrollReveal().reveal(".home-content p, .about-content", { origin: "right" });
 /*==================== typed js ====================*/
 const typed = new Typed(".multiple-text", {
     strings: ["Marketing Analyst", "Marketing Strategist", "Blockchain Advocate", "Frontend Developer"],
-    typeSpeed: 50,
-    backSpeed: 30,
-    backDelay: 1000,
+    typeSpeed: 40,
+    backSpeed: 10,
+    backDelay: 500,
     loop: true
 })
 
@@ -126,26 +126,6 @@ let navBarBtn = document.querySelectorAll("navbar-btn");
 let navBar = document.querySelector("body header nav");
 let header = document.querySelector("header");
 
-document.addEventListener('DOMContentLoaded', () => {
-    let lsDarkMode = localStorage.getItem("darkMode");
-    if (lsDarkMode === "true") {
-        document.body.classList.add("dark-mode");
-        document.documentElement.style.setProperty("--second-bg-color", secondBgClearColor)
-        btnDarkClear.style.backgroundColor = bgClearColor;
-        navBar.style.backgroundColor = bgClearColor;
-        header.style.backgroundColor = bgClearColor; 
-        menuIcon.style.color = bgColor; 
-        document.getElementById('color-mode').checked = true;
-    } else {
-        document.body.classList.remove("dark-mode");
-        document.documentElement.style.setProperty("--second-bg-color", secondBgDarkColor)
-        btnDarkClear.style.backgroundColor = bgColor;
-        navBar.style.backgroundColor = bgColor;
-        header.style.backgroundColor = bgColor;
-        menuIcon.style.color = bgClearColor; 
-        document.getElementById('color-mode').checked = false;
-    }
-});
 
 btnDarkClear.onclick = () => {
     document.body.classList.toggle("dark-mode");
@@ -170,4 +150,26 @@ btnDarkClear.onclick = () => {
 
     localStorage.setItem("darkMode", lsCurrentMode);
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    let lsDarkMode = localStorage.getItem("darkMode");
+    if (lsDarkMode === "true") {
+        document.body.classList.add("dark-mode");
+        document.documentElement.style.setProperty("--second-bg-color", secondBgClearColor)
+        btnDarkClear.style.backgroundColor = bgClearColor;
+        navBar.style.backgroundColor = bgClearColor;
+        header.style.backgroundColor = bgClearColor; 
+        menuIcon.style.color = bgColor; 
+        document.getElementById('color-mode').checked = true;
+    } else {
+        document.body.classList.remove("dark-mode");
+        document.documentElement.style.setProperty("--second-bg-color", secondBgDarkColor)
+        btnDarkClear.style.backgroundColor = bgColor;
+        navBar.style.backgroundColor = bgColor;
+        header.style.backgroundColor = bgColor;
+        menuIcon.style.color = bgClearColor; 
+        document.getElementById('color-mode').checked = false;
+    }
+});
+
 

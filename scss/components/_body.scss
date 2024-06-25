@@ -197,28 +197,47 @@ span {
     }
 }
 
-.social-media {
-    a {
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        width: 4rem;
-        height: 4rem;
-        background: transparent;
-        border: .2rem solid var(--first-color);
-        border-radius: 50%;
-        font-size: 2rem;
-        color: var(--first-color);
-        margin: 3rem 1.5rem 3rem 0;
+.social-media-contact, .social-media {
+    ul {
+        display: flex;
+        list-style-type: none;
+        .li-social-media-contact{
+            margin: 2rem;
+            a{
+                height: 60px;
+                width: 60px;
+                i{
+                    font-size: 30px;
+                }
+            }
+        }
+        li {
+            margin: 1.5rem 1.5rem 1.5rem 0;
+            a {
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                width: 4rem;
+                height: 4rem;
+                background: transparent;
+                border: .2rem solid var(--first-color);
+                border-radius: 50%;
+                font-size: 2rem;
+                color: var(--first-color);
+                
 
-        &:hover {
-            background-color: var(--first-color);
-            color: var(--bg-color);
-            box-shadow: 0 0 1rem --first-color;
-            transition: .5 ease;
+                &:hover {
+                    background-color: var(--first-color);
+                    color: var(--bg-color);
+                    box-shadow: 0 0 1rem --first-color;
+                    transition: .5 ease;
+                }
+            }
         }
     }
 }
+
+
 
 .btn {
     display: inline-block;
@@ -468,7 +487,8 @@ p {
 
 .contact {
     h2 {
-        margin-bottom: 3rem;
+        margin-top: 3rem;
+        margin-bottom: 1rem;
     }
 }
 
@@ -479,7 +499,7 @@ p {
     align-items: center;
 
     form {
-        max-width: 80%;
+        width: 60%;
         text-align: center;
         margin-bottom: 3rem;
 
@@ -510,6 +530,7 @@ p {
 
         textarea {
             width: 100%;
+            height: 50%;
             padding: 1.5rem;
             font-size: 1.6rem;
             color: var(--text-color);
@@ -568,7 +589,7 @@ p {
         font-size: 55%;
     }
 
-    section{
+    section {
         min-height: 80vh;
     }
 
@@ -610,7 +631,7 @@ p {
             margin: 3rem 0;
         }
     }
-    
+
     .navbar-colors-darkmode {
         display: flex;
         flex-direction: row;
@@ -620,7 +641,7 @@ p {
         flex-direction: column;
     }
 
-    #toggle-dark-mode{
+    #toggle-dark-mode {
         width: 50% !important;
         font-size: 130%;
     }
