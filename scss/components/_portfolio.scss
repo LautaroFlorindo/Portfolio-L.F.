@@ -1,0 +1,113 @@
+.portfolio {
+    background: var(--second-bg-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h2 {
+        margin-bottom: 2rem;
+    }
+}
+
+.portfolio-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.portfolio-box {
+    position: relative;
+    border-radius: 2rem;
+    box-shadow: 0 0 1rem var(--bg-color);
+    overflow: hidden;
+    display: flex;
+
+    &:hover {
+        transform: translateY(0);
+    }
+
+    .img-container{
+        height: 250.9px;   
+        overflow: hidden;  
+        width: 100%;
+        
+
+        img {
+            height: 100%;
+            width: 100%;
+            transition: .3s ease;
+        }
+    }
+}
+
+.portfolio-box:hover {
+    img {
+        transform: scale(1.04);
+    }
+}
+
+.portfolio-box {
+    .portfolio-layer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgba(0, 0, 0, .5), var(--first-color));
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        padding: 0 4rem;
+        transform: translateY(100%);
+        transition: 0.3s ease;
+
+        h4 {
+            color: var(--text-color);
+            font-size: 2.3rem;
+            font-weight: 600;
+            text-shadow: 1px 1px 1px var(--first-color);
+        }
+
+        h5{
+            color: var(--text-color);
+            font-size: 1.8rem;
+            font-weight: 500;
+            text-shadow: 1px 1px 1px var(--first-color);
+        }
+
+        p {
+            color: var(--text-color);
+            font-size: 1.6rem;
+            margin: .3rem 0 1rem;
+            font-weight: 500;
+            text-shadow: 1px 2px 5px var(--first-color);
+        }
+
+        a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 6rem;
+            height: 6rem;
+            background: var(--text-color);
+            border-radius: 50%;
+
+            i {
+                font-size: 2rem;
+                color: var(--bg-color);
+            }
+        }
+        &.active {
+            transform: translateY(0);
+        }
+    }
+}
+
+.portfolio-box:hover {
+    .portfolio-layer {
+        transform: translateY(0);
+    }
+}

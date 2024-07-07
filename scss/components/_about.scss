@@ -1,0 +1,29 @@
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    background-color: var(--second-bg-color);
+}
+
+.about-img {
+    img {
+        width: 35vw;
+    }
+}
+
+.about-content {
+    h2 {
+        text-align: left;
+        line-height: 1.2;
+    }
+
+    h3 {
+        font-size: 2.6rem;
+    }
+
+    p {
+        font-size: 1.6rem;
+        margin: 2rem 0 3rem;
+    }
+}

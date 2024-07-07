@@ -78,7 +78,7 @@ function applySavedColor() {
 
     if (savedColor && savedColorPalette) {
         let savedButton = Array.from(colorLinks).find(button => button.id === savedColor);
-        
+
         if (savedButton) {
             changeColor(savedButton);
         }
@@ -134,18 +134,18 @@ btnDarkClear.onclick = () => {
     navBarBtn.forEach(el => {
         el.classList.toggle("dark-mode")
     })
-    if(lsCurrentMode){
+    if (lsCurrentMode) {
         document.documentElement.style.setProperty("--second-bg-color", secondBgClearColor)
         btnDarkClear.style.backgroundColor = bgClearColor;
         navBar.style.backgroundColor = bgClearColor;
-        header.style.backgroundColor = bgClearColor; 
-        menuIcon.style.color = bgColor; 
-    } else{
+        header.style.backgroundColor = bgClearColor;
+        menuIcon.style.color = bgColor;
+    } else {
         document.documentElement.style.setProperty("--second-bg-color", secondBgDarkColor)
         btnDarkClear.style.backgroundColor = bgColor;
         navBar.style.backgroundColor = bgColor;
         header.style.backgroundColor = bgColor;
-        menuIcon.style.color = bgClearColor; 
+        menuIcon.style.color = bgClearColor;
     }
 
     localStorage.setItem("darkMode", lsCurrentMode);
@@ -158,8 +158,8 @@ document.addEventListener('DOMContentLoaded', () => {
         document.documentElement.style.setProperty("--second-bg-color", secondBgClearColor)
         btnDarkClear.style.backgroundColor = bgClearColor;
         navBar.style.backgroundColor = bgClearColor;
-        header.style.backgroundColor = bgClearColor; 
-        menuIcon.style.color = bgColor; 
+        header.style.backgroundColor = bgClearColor;
+        menuIcon.style.color = bgColor;
         document.getElementById('color-mode').checked = true;
     } else {
         document.body.classList.remove("dark-mode");
@@ -167,9 +167,36 @@ document.addEventListener('DOMContentLoaded', () => {
         btnDarkClear.style.backgroundColor = bgColor;
         navBar.style.backgroundColor = bgColor;
         header.style.backgroundColor = bgColor;
-        menuIcon.style.color = bgClearColor; 
+        menuIcon.style.color = bgClearColor;
         document.getElementById('color-mode').checked = false;
     }
 });
 
 
+/*==================== active layer for mobile ====================*/
+let mediaQuery991 = window.matchMedia("(max-width: 991px)")
+
+function mediaQueryLayer(mquery) {
+    if (mquery.matches) { // If media query matches
+        let portfolioClickBoxes = document.getElementsByClassName("portfolio-box");
+        let portfolioLayers = document.getElementsByClassName("portfolio-layer");
+
+        console.log(portfolioClickBoxes, portfolioLayers)
+        if (portfolioClickBoxes.length === portfolioLayers.length) {
+            for (let i = 0; i < portfolioClickBoxes.length; i++) {
+                portfolioClickBoxes[i].onclick = () => {
+                    if (portfolioLayers[i].classList.contains("active")) {
+                        portfolioLayers[i].classList.remove("active");
+                    } else {
+                        portfolioLayers[i].classList.add("active");
+                    }
+                   
+                };
+            }
+        }
+    }
+}
+
+mediaQueryLayer(mediaQuery991)
+
+mediaQuery991.addEventListener("change", mediaQueryLayer);
