@@ -50,7 +50,9 @@
       <h1>Lautaro Florindo</h1>
       <h3>And I'm a <span class="multiple-text"></span></h3>
       <p>
-        I excel in blending my expertise in <span>marketing, programming and blockchain</span> technology to craft personalized and impactful solutions. I love <span>merging these areas of expertise to devise creative strategies.</span>
+        I excel in blending my expertise in <span>marketing, programming and blockchain</span> technology to craft
+        personalized and impactful solutions. I love <span>merging these areas of expertise to devise creative
+          strategies.</span>
       </p>
       <div class="social-media">
         <ul>
@@ -97,19 +99,23 @@
       <div class="skills-box">
         <i class='bx bx-analyse'></i>
         <h3>Marketing</h3>
-        <p>Currently working towards a <span>Bachelor's degree in Marketing</span>. Gained years of experience through various projects, honing strategic and analytical skills that <span>brought alive brands from scratch.</span></p>
+        <p>Currently working towards a <span>Bachelor's degree in Marketing</span>. Gained years of experience through
+          various projects, honing strategic and analytical skills that <span>brought alive brands from scratch.</span>
+        </p>
         <a href="#portfolio" class="btn">See Projects</a>
       </div>
       <div class="skills-box">
         <i class='bx bx-cross'></i>
         <h3>Blockchain</h3>
-        <p>Pursuing a <span>Master's in Blockchain and Disruptive Technologies</span> since 2023, acquiring advanced knowledge to navigate and innovate within emerging tech landscapes.</p>
+        <p>Pursuing a <span>Master's in Blockchain and Disruptive Technologies</span> since 2023, acquiring advanced
+          knowledge to navigate and innovate within emerging tech landscapes.</p>
         <a href="#portfolio" class="btn">See Projects</a>
       </div>
       <div class="skills-box">
         <i class='bx bx-code-alt'></i>
         <h3>Coding</h3>
-        <p><span>Certified Coding Courses at Coderhouse</span> in 2022-23 and continuously enhancing skills through self-study, applying programming expertise to <span>develop holistic digital marketing solutions.</span></p>
+        <p><span>Certified Coding Courses at Coderhouse</span> in 2022-23 and continuously enhancing skills through
+          self-study, applying programming expertise to <span>develop holistic digital marketing solutions.</span></p>
         <a href="#portfolio" class="btn">See Projects</a>
       </div>
     </div>
@@ -175,7 +181,8 @@
           <h4 class="portfolio-titles">Web Development</h4>
           <h5>Sneaker Print</h5>
           <p>HTML // CSS (SASS) // JS<br>Functional Webpage Development.</p>
-          <a href="https://lautaroflorindo.github.io/Sneaker-Print/" target="_blank"><i class='bx bx-link-external'></i></a>
+          <a href="https://lautaroflorindo.github.io/Sneaker-Print/" target="_blank"><i
+              class='bx bx-link-external'></i></a>
         </div>
       </div>
     </div>
@@ -202,14 +209,31 @@
     </div>
     <form action="#">
       <div class="input-box">
-        <input type="text" placeholder="Full Name">
-        <input type="text" placeholder="Email Adress">
+        <div class="input-field field">
+          <input class="item-contact" id="name" type="text" placeholder="Full Name" autocomplete="off">
+          <div class="error-txt-contact">Full Name can't be blank.</div>
+        </div>
+        <div class="input-field field">
+          <input class="item-contact" id="email" type="text" placeholder="Email Address" autocomplete="off">
+          <div class="error-txt-contact email">Email Address can't be blank.</div>
+        </div>
       </div>
       <div class="input-box">
-        <input type="number" placeholder="Mobile Number">
-        <input type="text" placeholder="Email Subject">
+        <div class="input-field field">
+          <input class="item-contact" id="phone" type="number" placeholder="Phone Number" autocomplete="off">
+          <div class="error-txt-contact">Phone Number can't be blank.</div>
+        </div>
+        <div class="input-field field">
+          <input class="item-contact" id="subject" type="text" placeholder="Email Subject" autocomplete="off">
+          <div class="error-txt-contact">Email Subject can't be blank.</div>
+        </div>
       </div>
-      <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
+      <div class="textarea-box">
+        <div class="textarea-field field">
+          <textarea name="" class="item-contact" id="message" cols="30" rows="10" placeholder="Your Message"></textarea>
+          <div class="error-txt-contact">Message can't be blank.</div>
+        </div>
+      </div>
       <input type="submit" value="Send Message" class="btn">
     </form>
   </section>
@@ -226,10 +250,16 @@
     </div>
   </footer>
 
+  
   <!-- SCROLL REVEAL -->
   <script src="https://unpkg.com/scrollreveal"></script>
   <!-- TYPED JS -->
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <!-- CONTACT FORM -->
+  <script src="https://smtpjs.com/v3/smtp.js">
+  </script>
+  <!-- SWEET ALERT -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <!-- JS -->
   <script src="js/script.js"></script>
 </body>

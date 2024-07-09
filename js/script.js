@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
 let mediaQuery991 = window.matchMedia("(max-width: 991px)")
 
 function mediaQueryLayer(mquery) {
-    if (mquery.matches) { // If media query matches
+    if (mquery.matches) {
         let portfolioClickBoxes = document.getElementsByClassName("portfolio-box");
         let portfolioLayers = document.getElementsByClassName("portfolio-layer");
 
@@ -190,7 +190,7 @@ function mediaQueryLayer(mquery) {
                     } else {
                         portfolioLayers[i].classList.add("active");
                     }
-                   
+
                 };
             }
         }
@@ -200,3 +200,97 @@ function mediaQueryLayer(mquery) {
 mediaQueryLayer(mediaQuery991)
 
 mediaQuery991.addEventListener("change", mediaQueryLayer);
+
+
+/*==================== functional form ====================*/
+
+let form = document.querySelector("form");
+let fullName = document.getElementById("name");
+let phone = document.getElementById("phone");
+let email = document.getElementById("email");
+let subject = document.getElementById("subject");
+let mess = document.getElementById("message");
+let text = document.getElementById("text");
+
+function sendEmail() {
+    let bodyMessage = `Full Name: ${fullName.value}<br>Phone Number: ${phone.value}<br>Email:${email.value}<br>Message:${mess.value}`;
+
+    Email.send({
+        SecureToken : "03f82d1f-511b-4f12-b0a2-779cd06d32ab",
+        To: 'lautaroflorindo@gmail.com',
+        From: "lautaroflorindo@gmail.com",
+        Subject: subject.value,
+        Body: bodyMessage,
+    }).then(
+        message => {
+            if (message == "OK") {
+                Swal.fire({
+                    title: "Excellent!",
+                    text: "You will hear from me soon!",
+                    icon: "success"
+                });
+            }
+        }
+    );
+}
+
+function checkInputs() {
+    let items = document.querySelectorAll(".item-contact");
+
+    for (let item of items) {
+        if (item.value == "") {
+            item.classList.add("error");
+            item.parentElement.classList.add("error")
+        }
+
+        if(items[1].value != ""){
+            checkEmail()
+        }
+
+        items[1].addEventListener("keyup", () => {
+            checkEmail()
+        })
+
+        item.addEventListener("keyup", () => {
+            if (item.value != "") {
+                item.classList.remove("error");
+                item.parentElement.classList.remove("error")
+            }else{
+                item.classList.add("error");
+                item.parentElement.classList.add("error")
+            }
+        })
+    }
+}
+
+function checkEmail(){
+    const emailRegex = /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,3})(\.[a-z]{2,3})?$/;
+
+    const errorTxtEmail = document.querySelector(".error-txt-contact.email")
+
+    if(!email.value.match(emailRegex)){
+        email.classList.add("error");
+        email.parentElement.classList.add("error");
+
+        if(email.value != ""){
+            errorTxtEmail.innerText = "Enter a valid email address."
+        }else{
+            errorTxtEmail.innerText = "Email Address can't be blank."
+        }
+    }else{
+        email.classList.remove("error");
+        email.parentElement.classList.remove("error");
+    }
+}
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    checkInputs();
+    
+    if(!fullName.classList.contains("error") && !email.classList.contains("error") && !phone.classList.contains("error") && !subject.classList.contains("error") && !mess.classList.contains("error")){
+        sendEmail();
+
+        form.reset();
+        return false;
+    }
+})
