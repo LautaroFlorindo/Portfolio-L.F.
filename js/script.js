@@ -214,7 +214,6 @@ let text = document.getElementById("text");
 
 function sendEmail() {
     let bodyMessage = `Full Name: ${fullName.value}<br>Phone Number: ${phone.value}<br>Email:${email.value}<br>Message:${mess.value}`;
-
     Email.send({
         SecureToken : "03f82d1f-511b-4f12-b0a2-779cd06d32ab",
         To: 'lautaroflorindo@gmail.com',
@@ -232,6 +231,7 @@ function sendEmail() {
             }
         }
     );
+
 }
 
 function checkInputs() {
